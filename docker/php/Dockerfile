@@ -1,9 +1,9 @@
 # From
-FROM php:8.3.4-fpm-alpine3.19
+FROM php:8.4.6-fpm-alpine3.21
 
 # Labels
-LABEL creatorName="Vagner dos Santos Cardoso"
-LABEL creatorEmail="vagnercardosoweb@gmail.com"
+LABEL creatorName="iTechS"
+LABEL creatorEmail="admintrator.itechs@gmail.com"
 
 # Set timezone
 ENV TZ=${TZ:-UTC}
@@ -47,7 +47,7 @@ RUN set -eux \
   sysvsem \
   sysvshm \
   opcache \
-  imap \
+#  imap \
   gmp \
   \
   # Install xdebug
@@ -93,7 +93,7 @@ COPY ./entrypoint /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 # Workdir
-ENV WORKDIR=/var/www/app
+ENV WORKDIR=/var/www/public_html
 RUN mkdir -p ${WORKDIR}
 WORKDIR ${WORKDIR}
 
